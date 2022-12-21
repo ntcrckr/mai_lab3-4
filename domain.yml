@@ -144,59 +144,85 @@ slots:
       entity: handoff_to
 responses:
   utter_out_of_scope:
-  - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+#  - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+  - text: Извините, я не до конца понял, как ответить на это. Напишите "Помощь" для вывода справки.
   utter_greet:
-  - text: Hallo! I'm your IT Helpdesk Assistant.
+#  - text: Hallo! I'm your IT Helpdesk Assistant.
+  - text: Здравствуйте! Я ваш IT Helpdesk помощник.
   utter_goodbye:
-  - text: Goodbye!
+#  - text: Goodbye!
+  - text: До свидания!
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+#  - text: I am a bot, powered by Rasa.
+  - text: Я бот, работающий с помощью Rasa.
   utter_ask_email:
-  - text: What is your email address?
+#  - text: What is your email address?
+  - text: Какой ваш email адрес?
   utter_ask_incident_title:
-  - text: What should we use for the title of this incident?
+#  - text: What should we use for the title of this incident?
+  - text: Какой заголовок использовать для этого тикета?
   utter_ask_problem_description:
-  - text: What is the problem description for the issue?
+#  - text: What is the problem description for the issue?
+  - text: В чем заключается проблема?
   utter_ask_priority:
-  - text: What is the priority of this issue?
+#  - text: What is the priority of this issue?
+  - text: Какой приоритет у этой проблемы?
     buttons:
-    - payload: /inform{"priority":"low"}
-      title: low
-    - payload: /inform{"priority":"medium"}
-      title: medium
-    - payload: /inform{"priority":"high"}
-      title: high
+    - payload: /inform{"priority":"Низкий"}
+#      title: low
+      title: Низкий
+    - payload: /inform{"priority":"Средний"}
+#      title: medium
+      title: Средний
+    - payload: /inform{"priority":"Высокий"}
+#      title: high
+      title: Высокий
   utter_no_priority:
-  - text: Sorry "{priority}" is not a valid priority. Please try again.
+#  - text: Sorry "{priority}" is not a valid priority. Please try again.
+  - text: Извините, но "{priority}" не является валидным ответом. Пожалуйста, попробуйте еще раз.
   utter_no_email:
-  - text: Sorry, "{email}" isn't in our incident management system. Please try again.
+#  - text: Sorry, "{email}" isn't in our incident management system. Please try again.
+  - text: Извините, но "{email}" не найден в нашей системе менеджмента обращений. Пожалуйста, попробуйте еще раз.
   utter_help:
-  - text: "I can help you open a service request ticket, or check the status of your open incidents. \nYou can ask me things like: \n- Open an incident \n- Help me reset my password \n- I'm having a issue with my email \n- What's the status of the ticket I opened?"
+#  - text: "I can help you open a service request ticket, or check the status of your open incidents. \nYou can ask me things like: \n- Open an incident \n- Help me reset my password \n- I'm having a issue with my email \n- What's the status of the ticket I opened?"
+  - text: "Я могу помочь вам с открытием тикета сервисной помощи, или проверить статус уже открытых тикетов. \nВы можете спрашивать у меня такие вещи, как:\n- Открой тикет\n- Помоги мне поменять пароль\n- У меня проблемы с email\n- Какой статус и тикета, который я открывал(а)?"
   utter_welcome:
-  - text: You're welcome!
+#  - text: You're welcome!
+  - text: Пожалуйста!
   utter_default:
-  - text: I didn't quite understand that. Could you rephrase?
+#  - text: I didn't quite understand that. Could you rephrase?
+  - text: Я не совсем понял, что вы имели ввиду. Не могли бы вы перефразировать?
   utter_ask_use_previous_email:
-  - text: Would you like to use the last email address you used, {previous_email}?
+#  - text: Would you like to use the last email address you used, {previous_email}?
+  - text: Не хотите ли использовать последний введенный email адрес, {previous_email}?
   utter_ask_confirm:
-  - text: "Should I open an incident with the following details? \n    email: {email} \n    problem description: {problem_description} \n    title: {incident_title} \n    priority: {priority}"
+#  - text: "Should I open an incident with the following details? \n    email: {email} \n    problem description: {problem_description} \n    title: {incident_title} \n    priority: {priority}"
+  - text: "Мне открыть тикет со следующими деталями?\n    email: {email} \n    описание проблемы: {problem_description} \n    заголовок: {incident_title} \n    приоритет: {priority}"
     buttons:
-    - title: Yes
+#    - title: Yes
+    - title: Да
       payload: /affirm
-    - title: No, cancel the incident
+#    - title: No, cancel the incident
+    - title: Нет, отменить этот тикет.
       payload: /deny
   utter_incident_creation_canceled:
-  - text: Alright, I have cancelled the incident.
+#  - text: Alright, I have cancelled the incident.
+  - text: Хорошо, я отменил тикет.
   utter_ask_whatelse:
-  - text: What else can I help you with?
+#  - text: What else can I help you with?
+  - text: С чем ещё я могу вам помочь?
   utter_ask_handoff:
-  - text: It looks like you want to be transferred to a human agent.
+#  - text: It looks like you want to be transferred to a human agent.
+  - text: Кажется, вы хотите быть переданы дежурному ассистенту-человеку.
   utter_handoff:
-  - text: Alright, I'll try to transfer you.
+#  - text: Alright, I'll try to transfer you.
+  - text: Хорошо, я попробую передать вас.
   utter_wouldve_handed_off:
-  - text: If you were talking to me via chatroom, I would have handed you off to {handoffhost}.
+#  - text: If you were talking to me via chatroom, I would have handed you off to {handoffhost}.
+  - text: Если вы говорили со мной в чат-руме, я бы передал вас {handoffhost}.
   utter_no_handoff:
-  - text: Since you haven't configured a host to hand off to, I can't send you anywhere!
+#  - text: Since you haven't configured a host to hand off to, I can't send you anywhere!
+  - text: Так как вы не настроили хоста для передачи, я не могу вас куда-либо отправить!
 forms:
   open_incident_form:
     ignored_intents: []

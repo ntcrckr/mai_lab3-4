@@ -1,16 +1,27 @@
-language: en
+language: ru
 pipeline:
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
+    "case_sensitive": False
   - name: LexicalSyntacticFeaturizer
+    "features": [
+      [ "title" ],
+      [ "BOS", "EOS", "title", "digit" ],
+      [ "title" ],
+    ]
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: "char_wb"
+#    strip_accents: "ascii"
+#    stop_words: "english"
+#    max_features: None
     min_ngram: 1
     max_ngram: 4
+#    max_ngram: 6
   - name: DIETClassifier
-    epochs: 150
+    epochs: 300
     random_seed: 1
+    ranking_length: 5
   - name: FallbackClassifier
     threshold: 0.7
   - name: DucklingEntityExtractor
@@ -28,4 +39,3 @@ policies:
     core_fallback_threshold: 0.4
     core_fallback_action_name: "action_default_fallback"
     enable_fallback_prediction: True
-
